@@ -1,0 +1,378 @@
+:root {
+    --primario: #9C27B0;
+    --primariooscuro: #98119D;
+    --secundario: #ffce00;
+    --secundariooscuro: #e9e700; /* Ajustado el color para ser un valor válido */
+    --blanco: #fff;
+    --negro: #000;
+    --fuentePrincipal: "Nerko One", cursive;
+}
+
+
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: var(--primario);
+    font-size: 2rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+p {
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+    text-transform: uppercase; /* Mayúsculas en los párrafos */
+}
+
+a {
+    text-decoration: none;
+    text-transform: uppercase; /* Mayúsculas en los enlaces */
+}
+
+img {
+    width: 100%;
+    height: auto; /* Ajustar altura automática */
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.header__logo {
+    margin: 3rem 0;
+}
+
+/* Navegación */
+.navegacion {
+    background-color: var(--primariooscuro);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.navegacion__enlace {
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    font-size: 4rem;
+    text-transform: uppercase; /* Mayúsculas en los enlaces */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+}
+
+.navegacion__enlace:hover {
+    color: var(--secundariooscuro); /* Color cuando se pasa el ratón por encima */
+}
+
+.navegacion__enlace--activo {
+    color: var(--secundario); /* Color del enlace activo */
+}
+
+
+/* Footer */
+.footer {
+    background-color: var(--primariooscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.footer__texto {
+    color: var(--blanco);
+    text-align: center;
+    text-transform: uppercase; /* Mayúsculas en el footer */
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Productos */
+.producto {
+    background-color: var(--primariooscuro);
+    padding: 1rem;
+}
+
+.producto__imagen {
+    width: 100%;
+    height: auto; /* Ajustar altura automática */
+}
+
+.producto__informacion {
+    text-align: center;
+}
+
+.producto__nombre {
+    font-size: 1.8rem;
+    font-family: var(--fuentePrincipal);
+    margin: 1rem 0;
+    text-transform: uppercase; /* Mayúsculas en el nombre */
+}
+
+.producto__precio {
+    font-size: 1.6rem;
+    color: var(--secundario);
+    font-family: var(--fuentePrincipal);
+    text-transform: uppercase; /* Mayúsculas en el precio */
+}
+
+/* Gráficos */
+.grafico {
+    min-height: 30rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.grafico--camisas {
+    grid-row: 2 / 3; /* Mantener en la segunda fila */
+    grid-column: 1 / 3; /* Ocupa 2/3 del ancho del contenedor */
+    background-image: url(../img/grafico1.jpg);
+}
+
+.grafico--node {
+    grid-row: 5 / 6; /* Mantener en la fila adecuada */
+    grid-column: 2 / 3; /* Ocupa el espacio desde la columna 2 hasta la columna 3 */
+    background-image: url(../img/grafico2.jpg);
+}
+
+/* Diseño para pantallas de laptop y PC */
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    }
+
+    .grafico--node {
+        grid-column: 2 / 4; /* Ocupa el espacio desde la columna 2 hasta el final */
+    }
+}
+
+/* Diseño para pantallas grandes */
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    }
+}
+
+/* Diseño para dispositivos móviles */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en móviles */
+    }
+
+    .grafico--camisas,
+    .grafico--node {
+        grid-column: 1 / -1; /* Ocupa toda la fila en móviles */
+    }
+}
+
+/* Contenedor */
+.contenedor {
+    max-width: 120rem;
+    margin: auto;
+    padding: 0 1rem; /* Agregar padding para móviles */
+}
+
+/* Tipografía */
+h1, h2, h3 {
+    text-align: center;
+    color: var(--secundario);
+    font-family: var(--fuentePrincipal);
+    text-transform: uppercase; /* Mayúsculas en los encabezados */
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+/* Nosotros */
+.nosotros {
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna por defecto */
+    gap: 2rem; /* Espacio entre elementos */
+}
+
+@media (min-width: 768px) {
+    .nosotros {
+        grid-template-columns: 1fr 1fr; /* Dos columnas iguales en pantallas grandes */
+        align-items: center; /* Alinear verticalmente las columnas */
+    }
+}
+
+.nosotros__contenido {
+    padding: 1rem; /* Padding para mejorar la lectura en móviles */
+}
+
+.nosotros__imagen {
+    width: 100%; /* Imagen ocupa el ancho completo del contenedor */
+    height: 100%; /* Imagen ocupa la altura completa del contenedor */
+    object-fit: cover; /* Mantiene la imagen ajustada en su contenedor */
+    border-radius: 8px; /* Bordes redondeados en la imagen */
+}
+
+/* Ajustar altura de la imagen y contenido para que ocupen el mismo espacio */
+@media (min-width: 768px) {
+    .nosotros__imagen,
+    .nosotros__contenido {
+        height: 100%; /* Asegura que ambos ocupen el mismo espacio vertical */
+    }
+}
+
+
+
+/* Bloques */
+.bloques {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .bloques {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas grandes */
+    }
+}
+
+.bloque {
+    text-align: center;
+    background-color: var(--primariooscuro);
+    padding: 1rem;
+    border-radius: 8px; /* Bordes redondeados para bloques */
+}
+
+.bloque__imagenes {
+    width: 50%;
+    height: auto;
+    margin: 0 auto 1rem; /* Centrar imagen y agregar margen inferior */
+}
+
+.bloque__titulo {
+    margin: 1rem 0;
+    font-size: 2rem;
+    color: var(--secundario);
+    text-transform: uppercase; /* Mayúsculas en los títulos de los bloques */
+}
+
+
+/* Página del producto */
+.camisa {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.camisa__imagen {
+    width:100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.camisa__contenido {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.camisa__contenido p {
+    font-size: 1.6rem;
+    color: var(--blanco);
+}
+
+/* Página del producto */
+.camisa {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    align-items: center;
+    gap: 2rem; /* Espacio entre columnas */
+}
+
+.camisa__imagen {
+    width: 100%;
+    height: auto;
+    padding: 1.5rem;
+}
+
+.camisa__contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espacio entre el texto y el formulario */
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    font-family: var(--fuentePrincipal);
+}
+
+@media (max-width: 768px) {
+    .camisa {
+        grid-template-columns: 1fr; /* Imagen arriba y formulario abajo en móviles */
+    }
+
+    .formulario {
+        gap: 2rem; /* Mayor espacio entre el formulario y los inputs en móviles */
+    }
+
+    .formulario__submit {
+        margin: 1.5rem 0; /* Agregar margen superior e inferior en móviles */
+        padding: 1rem; /* Asegura que el padding del botón sea consistente */
+    }
+}
+
+.formulario__campo {
+    border-color: var(--primariooscuro);
+    border-width: 1px;
+    border-style: solid;
+    background-color: var(--primario);
+    color: var(--negro);
+    font-size: 1.6rem; /* Ajustar tamaño del texto para uniformidad */
+    padding: 1rem; /* Aumentar padding para mejor apariencia */
+    appearance: none;
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+.formulario__campo::placeholder {
+    color: var(--negro); /* Color del texto del placeholder */
+}
+
+.formulario__campo:focus {
+    outline: none;
+    border-color: var(--secundario);
+}
+
+.formulario__submit {
+    background-color: var(--secundario);
+    border: none;
+    font-size: 1.8rem; /* Tamaño del texto del botón */
+    padding: 1rem;
+    color: var(--negro);
+    text-transform: uppercase;
+    grid-column: 1 / -1; /* Ocupa todo el ancho del formulario */
+    margin-top: 1rem; /* Espacio entre el input y el botón en pantallas grandes */
+}
+
+.formulario__submit:hover {
+    cursor: pointer;
+    background-color: var(--secundariooscuro);
+}
+
